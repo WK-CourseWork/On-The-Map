@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  On The Map
 //
-//  Created by Justin Kumpe on 7/22/22.
+//  Created by Waylon Kumpe on 7/22/22.
 //
 
 import UIKit
