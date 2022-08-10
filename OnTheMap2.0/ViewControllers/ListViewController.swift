@@ -29,7 +29,7 @@ class ListViewController: UITableViewController {
         let student = students[indexPath.row]
         cell.textLabel?.text = "\(student.firstName)" + " " + "\(student.lastName)"
         cell.detailTextLabel?.text = "\(student.mediaURL ?? "")"
-        
+
         return cell
     }
 

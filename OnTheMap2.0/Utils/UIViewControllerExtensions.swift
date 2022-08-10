@@ -23,12 +23,12 @@ extension UIViewController {
         }
         UIApplication.shared.open(url, options: [:])
     }
-    
+
     func showActivityCircle(_ activityCircle: UIActivityIndicatorView) {
         activityCircle.isHidden = false
         activityCircle.startAnimating()
     }
-    
+
     func hideActivityCircle(_ activityCircle: UIActivityIndicatorView) {
         activityCircle.isHidden = true
         activityCircle.stopAnimating()
