@@ -57,7 +57,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
-    
+
     @IBAction func reloadButtonPressed(_ sender: Any) {
         getTheStudentLocation()
     }
