@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    
+
     func showError(message: String, title: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

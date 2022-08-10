@@ -8,7 +8,7 @@
 import Foundation
 
 class TheRequestHelpers {
-    
+
     class func taskForGETRequest<ResponseType: Decodable>(url: URL, apiType: String, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -19,7 +19,7 @@ class TheRequestHelpers {
         } else {
             
         }
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
             if error != nil {
                 completion(nil, error)
                 return
@@ -65,7 +65,7 @@ class TheRequestHelpers {
         request.httpBody = body.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if error != nil {
-                completion(nil,error)
+                completion(nil, error)
                 return
             }
             guard let data = data else {
@@ -75,7 +75,7 @@ class TheRequestHelpers {
                 return
             }
             
-            do{
+            do {
                 if apiType == "Udacity" {
                     let range = 5..<data.count
                     let newData = data.subdata(in: range)
@@ -89,7 +89,7 @@ class TheRequestHelpers {
                         completion(responseObject, nil)
                     }
                 }
-            }catch{
+            } catch {
                 DispatchQueue.main.async {
                     completion(nil, error)
                 }

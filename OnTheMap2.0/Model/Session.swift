@@ -8,5 +8,5 @@
 import Foundation
 
 struct TheSession: Codable {
-    let id, expiration: String
+    let theId, expiration: String
 }

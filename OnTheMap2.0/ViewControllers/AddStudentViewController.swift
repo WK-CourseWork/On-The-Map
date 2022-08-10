@@ -12,7 +12,7 @@ import MapKit
 class AddStudentViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addStudentMapView: MKMapView!
     @IBOutlet weak var enterALinkToShare: UITextField!
-    
+
     var objectId: String?
     var studentInformation: TheStudentInformation?
     

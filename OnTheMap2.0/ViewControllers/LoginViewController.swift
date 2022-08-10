@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class LoginViewController: UIViewController {
-    
+
     // MARK: IBOutlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
@@ -17,13 +17,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var acitivityCircle: UIActivityIndicatorView!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         hideActivityCircle(acitivityCircle)
     }
-    
+
     @IBAction func loginButtonPressed(_ sender: Any) {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""

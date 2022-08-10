@@ -10,28 +10,27 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate {
-    
-    
+
     @IBOutlet weak var theMapView: MKMapView!
     @IBOutlet weak var mapViewReloadButton: UIBarButtonItem!
     @IBOutlet weak var mapViewAddButton: UIBarButtonItem!
-    
+
     var locations = [TheStudentInformation]()
     var annotations = [MKPointAnnotation]()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         theMapView.delegate = self
     }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getTheStudentLocation()
     }
-    
+
     func getTheStudentLocation() {
-        APIClient.getStudentLocation(){locations, error in
-            if error == nil{
+        APIClient.getStudentLocation { locations, error in
+            if error == nil {
                 self.theMapView.removeAnnotations(self.annotations)
                 self.annotations.removeAll()
                 self.locations = locations ?? []
@@ -51,7 +50,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 DispatchQueue.main.async {
                     self.theMapView.addAnnotations(self.annotations)
                 }
-            }else{
+            } else {
                 DispatchQueue.main.async {
                     self.showError(message: "Can not download data", title: "Error")
                 }
@@ -72,8 +71,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             pinView!.pinTintColor = .red
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             
-        }
-        else {
+        } else {
             pinView!.annotation = annotation
         }
         return pinView

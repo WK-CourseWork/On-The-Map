@@ -8,9 +8,9 @@
 import UIKit
 
 class APIClient {
-    
+
     struct Auth {
-        static var sessionId: String? = nil
+        static var sessionId: String?
         static var key = ""
         static var firstName = ""
         static var lastName = ""
@@ -48,13 +48,13 @@ class APIClient {
         }
     }
     
-    class func login(username: String, password: String, completion: @escaping (Bool,Error?)->Void){
+    class func login(username: String, password: String, completion: @escaping (Bool, Error?) ->Void) {
         let body = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}"
         TheRequestHelpers.taskForPOSTRequest(url: APIEndpoints.login.url, apiType: "Udacity", responseType: TheLoginResponse.self, body: body, httpMethod: "POST") { (data, error) in
             if let data = data {
-                Auth.sessionId = data.session.id
+                Auth.sessionId = data.session.theId
                 Auth.key = data.account.key
-                getLoggedInUserProfile(completion: { (success, error) in
+                getLoggedInUserProfile(completion: { (success, _) in
                     if success {
                         print("Logged in user's profile fetched.")
                     }
@@ -80,10 +80,10 @@ class APIClient {
         }
     }
     
-    class func logout(completion: @escaping ()->Void){
+    class func logout(completion: @escaping () ->Void) {
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
         request.httpMethod = "DELETE"
-        var xsrfCookie: HTTPCookie? = nil
+        var xsrfCookie: HTTPCookie?
         let sharedCookieStorage = HTTPCookieStorage.shared
         for cookie in sharedCookieStorage.cookies! {
             if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
@@ -92,7 +92,7 @@ class APIClient {
             request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
         }
         let session = URLSession.shared
-        let task = session.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, _, error in
             if error != nil { // Handle error…
                 print("Error logout")
                 return
@@ -106,12 +106,12 @@ class APIClient {
         task.resume()
     }
 
-    class func getStudentLocation(completion: @escaping ([TheStudentInformation]?, Error?) -> Void){
+    class func getStudentLocation(completion: @escaping ([TheStudentInformation]?, Error?) -> Void) {
         TheRequestHelpers.taskForGETRequest(url: APIEndpoints.studentLocation.url, apiType: "Parse", responseType: TheStudentLocation.self) { (data, error) in
-            if let data = data{
-                completion(data.results,nil)
-            }else{
-                completion([],error)
+            if let data = data {
+                completion(data.results, nil)
+            } else {
+                completion([], error)
             }
         }
     }

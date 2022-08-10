@@ -18,7 +18,7 @@ struct Location: Codable {
     let longitude: Double?
     let createdAt: String
     let updatedAt: String
-    
+
     var locationLabel: String {
         var name = ""
         if let firstName = firstName {

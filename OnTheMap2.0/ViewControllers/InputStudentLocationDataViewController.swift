@@ -10,29 +10,29 @@ import UIKit
 import MapKit
 
 class InputStudentLocationDataViewController: UIViewController, UITextFieldDelegate {
-    
+
     @IBOutlet weak var findOnTheMapButton: UIButton!
     @IBOutlet weak var inputAcitivityIndicator: UIActivityIndicatorView!
-    
+
     @IBOutlet weak var enterLocationTextField: UITextField!
-    
+
     @IBAction func cancelButtonPressed(_ sender: Any) {
         dismiss(animated: true)
     }
-    
+
     var objectId: String?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         enterLocationTextField.delegate = self
         hideActivityCircle(inputAcitivityIndicator)
     }
-    
+
     @IBAction func findTheLocation(sender: UIButton) {
         let location = enterLocationTextField.text
         theGeocodePosition(newLocation: location ?? "")
     }
-    
+
      func theGeocodePosition(newLocation: String) {
         showActivityCircle(inputAcitivityIndicator)
         CLGeocoder().geocodeAddressString(newLocation) { (newMarker, error) in
@@ -41,11 +41,11 @@ class InputStudentLocationDataViewController: UIViewController, UITextFieldDeleg
                 print("Location not found.")
             } else {
                 var location: CLLocation?
-                
+            
                 if let marker = newMarker, marker.count > 0 {
                     location = marker.first?.location
                 }
-                
+            
                 if let location = location {
                     self.navigateToConfirm(location: location.coordinate)
                 } else {
@@ -56,13 +56,13 @@ class InputStudentLocationDataViewController: UIViewController, UITextFieldDeleg
             self.hideActivityCircle(self.inputAcitivityIndicator)
         }
     }
-    
-    func navigateToConfirm(location: CLLocationCoordinate2D){
+
+    func navigateToConfirm(location: CLLocationCoordinate2D) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "addStudentViewController") as! AddStudentViewController
         controller.studentInformation = buildStudentInfo(location)
         self.navigationController?.pushViewController(controller, animated: true)
     }
-    
+
      func buildStudentInfo(_ coordinate: CLLocationCoordinate2D) -> TheStudentInformation {
         var studentInfo = [
             "uniqueKey": APIClient.Auth.key,
@@ -71,7 +71,7 @@ class InputStudentLocationDataViewController: UIViewController, UITextFieldDeleg
             "mapString": enterLocationTextField.text!,
             "mediaURL": "",
             "latitude": coordinate.latitude,
-            "longitude": coordinate.longitude,
+            "longitude": coordinate.longitude
             ] as [String: AnyObject]
         
         if let objectId = objectId {
@@ -80,7 +80,7 @@ class InputStudentLocationDataViewController: UIViewController, UITextFieldDeleg
         }
         return TheStudentInformation(studentInfo)
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         enterLocationTextField.resignFirstResponder()
         return true

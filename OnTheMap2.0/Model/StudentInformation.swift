@@ -18,7 +18,7 @@ struct TheStudentInformation: Codable {
     let objectId: String?
     let uniqueKey: String?
     let updatedAt: String?
-    
+
     init(_ dictionary: [String: AnyObject]) {
         self.createdAt = dictionary["createdAt"] as? String
         self.uniqueKey = dictionary["uniqueKey"] as? String ?? ""
@@ -32,7 +32,7 @@ struct TheStudentInformation: Codable {
         self.updatedAt = dictionary["updatedAt"] as? String
     }
     
-    var ThelabelName: String {
+    var thelabelName: String {
         var name = ""
         if !firstName.isEmpty {
             name = firstName
