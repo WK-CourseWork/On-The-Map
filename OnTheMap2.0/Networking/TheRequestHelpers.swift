@@ -20,7 +20,7 @@ class TheRequestHelpers {
             completion(response, error)
         }
     }
-    
+
     class func taskForRequest<ResponseType: Decodable>(url: URL, apiType: String, responseType: ResponseType.Type, body: String? = nil, httpMethod: String, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod
