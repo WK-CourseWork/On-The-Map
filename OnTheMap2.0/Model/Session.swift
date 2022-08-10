@@ -8,5 +8,11 @@
 import Foundation
 
 struct TheSession: Codable {
-    let theId, expiration: String
+    let sessionId: String
+    let expiration: String
+
+    enum CodingKeys: String, CodingKey {
+        case sessionId = "id"
+        case expiration
+    }
 }

@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: Any) {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
-        if email != "" && password != ""{
+        if email != "" && password != "" {
             showActivityCircle(acitivityCircle)
             APIClient.login(username: email, password: password, completion: handleTheLoginResponse(success:error:))
         } else {
@@ -41,9 +41,9 @@ class LoginViewController: UIViewController {
     func handleTheLoginResponse(success: Bool, error: Error?) {
         DispatchQueue.main.async {
             self.hideActivityCircle(self.acitivityCircle)
-            if let error = error {
+            if error != nil {
                 DispatchQueue.main.async {
-                    self.showError(message: error.localizedDescription, title: "Login Error")
+                    self.showError(message: "Please enter a valid username and password.", title: "Login Error")
                 }
                 return
             }

@@ -74,9 +74,8 @@
                                     <constraint firstAttribute="width" constant="414" id="xs0-E3-rmj"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="0PE-cc-mCP">
-                                <rect key="frame" x="174" y="683" width="67" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="0PE-cc-mCP">
+                                <rect key="frame" x="174" y="593" width="67" height="61"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -84,9 +83,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="AbF-hW-qdw" firstAttribute="leading" secondItem="LTF-Eg-ldg" secondAttribute="leading" id="2Mj-W9-8Pv"/>
+                            <constraint firstItem="0PE-cc-mCP" firstAttribute="leading" secondItem="LTF-Eg-ldg" secondAttribute="leading" constant="174" id="5nR-uI-h9j"/>
                             <constraint firstItem="LTF-Eg-ldg" firstAttribute="trailing" secondItem="idR-Uq-UGH" secondAttribute="trailing" id="D4h-xf-Sbz"/>
                             <constraint firstItem="idR-Uq-UGH" firstAttribute="top" secondItem="AbF-hW-qdw" secondAttribute="bottom" constant="0.5" id="NC9-dc-9jX"/>
                             <constraint firstItem="AbF-hW-qdw" firstAttribute="top" secondItem="fHc-gY-Mj2" secondAttribute="top" id="YnZ-M0-hgV"/>
+                            <constraint firstItem="LTF-Eg-ldg" firstAttribute="trailing" secondItem="0PE-cc-mCP" secondAttribute="trailing" constant="173" id="cgZ-hR-Xq7"/>
+                            <constraint firstItem="0PE-cc-mCP" firstAttribute="top" secondItem="idR-Uq-UGH" secondAttribute="bottom" id="g8u-Oy-imN"/>
+                            <constraint firstItem="LTF-Eg-ldg" firstAttribute="bottom" secondItem="0PE-cc-mCP" secondAttribute="bottom" constant="208" id="hdx-rm-JZn"/>
                             <constraint firstItem="idR-Uq-UGH" firstAttribute="leading" secondItem="LTF-Eg-ldg" secondAttribute="leading" id="nSu-XI-4pl"/>
                             <constraint firstItem="LTF-Eg-ldg" firstAttribute="trailing" secondItem="AbF-hW-qdw" secondAttribute="trailing" id="zLi-7s-QQf"/>
                         </constraints>

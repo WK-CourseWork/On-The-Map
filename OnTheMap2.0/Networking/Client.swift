@@ -52,7 +52,7 @@ class APIClient {
         let body = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}"
         TheRequestHelpers.taskForPOSTRequest(url: APIEndpoints.login.url, apiType: "Udacity", responseType: TheLoginResponse.self, body: body, httpMethod: "POST") { (data, error) in
             if let data = data {
-                Auth.sessionId = data.session.theId
+                Auth.sessionId = data.session.sessionId
                 Auth.key = data.account.key
                 getLoggedInUserProfile(completion: { (success, _) in
                     if success {
