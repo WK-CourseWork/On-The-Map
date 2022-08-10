@@ -52,7 +52,7 @@ class TheRequestHelpers {
         }
         task.resume()
     }
-    
+
     class func taskForPOSTRequest<ResponseType: Decodable>(url: URL, apiType: String, responseType: ResponseType.Type, body: String, httpMethod: String, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         if httpMethod == "POST" {
@@ -74,7 +74,7 @@ class TheRequestHelpers {
                 }
                 return
             }
-            
+
             do {
                 if apiType == "Udacity" {
                     let range = 5..<data.count

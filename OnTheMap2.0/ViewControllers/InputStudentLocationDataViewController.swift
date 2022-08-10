@@ -45,7 +45,7 @@ class InputStudentLocationDataViewController: UIViewController, UITextFieldDeleg
                 if let marker = newMarker, marker.count > 0 {
                     location = marker.first?.location
                 }
-            
+
                 if let location = location {
                     self.navigateToConfirm(location: location.coordinate)
                 } else {
@@ -73,7 +73,7 @@ class InputStudentLocationDataViewController: UIViewController, UITextFieldDeleg
             "latitude": coordinate.latitude,
             "longitude": coordinate.longitude
             ] as [String: AnyObject]
-        
+
         if let objectId = objectId {
             studentInfo["objectId"] = objectId as AnyObject
             print(objectId)

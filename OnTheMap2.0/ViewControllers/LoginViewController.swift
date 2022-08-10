@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
     @IBAction func signUpButtonPressed(_ sender: Any) {
         UIApplication.shared.open(APIClient.APIEndpoints.signUp.url, options: [:], completionHandler: nil)
     }
-    
+
     func handleTheLoginResponse(success: Bool, error: Error?) {
         DispatchQueue.main.async {
             self.hideActivityCircle(self.acitivityCircle)

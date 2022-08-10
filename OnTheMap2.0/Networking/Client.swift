@@ -19,7 +19,7 @@ class APIClient {
 
     enum APIEndpoints {
         static let base = "https://onthemap-api.udacity.com/v1"
-        
+
         case login
         case logout
         case studentLocation
@@ -27,7 +27,7 @@ class APIClient {
         case updateLocation
         case getLoggedInUserProfile
         case signUp
-        
+
         var stringValue: String {
             switch self {
             case .signUp:
@@ -42,12 +42,12 @@ class APIClient {
                 return APIEndpoints.base + "/users/" + Auth.key
             }
         }
-        
+
         var url: URL {
             return URL(string: stringValue)!
         }
     }
-    
+
     class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         let body = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}"
         TheRequestHelpers.taskForPOSTRequest(url: APIEndpoints.login.url, apiType: "Udacity", responseType: TheLoginResponse.self, body: body, httpMethod: "POST") { (data, error) in
@@ -65,7 +65,7 @@ class APIClient {
             }
         }
     }
-    
+
     class func getLoggedInUserProfile(completion: @escaping (Bool, Error?) -> Void) {
         TheRequestHelpers.taskForGETRequest(url: APIEndpoints.getLoggedInUserProfile.url, apiType: "Udacity", responseType: TheUserProfile.self) { (data, error) in
             if let data = data {
@@ -79,7 +79,7 @@ class APIClient {
             }
         }
     }
-    
+
     class func logout(completion: @escaping () -> Void) {
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
         request.httpMethod = "DELETE"
@@ -115,7 +115,7 @@ class APIClient {
             }
         }
     }
-    
+
     class func addStudentLocation(information: TheStudentInformation, completion: @escaping (Bool, Error?) -> Void) {
         let body = "{\"uniqueKey\": \"\(information.uniqueKey ?? "")\", \"firstName\": \"\(information.firstName)\", \"lastName\": \"\(information.lastName)\",\"mapString\": \"\(information.mapString ?? "")\", \"mediaURL\": \"\(information.mediaURL ?? "")\",\"latitude\": \(information.latitude ?? 0.0), \"longitude\": \(information.longitude ?? 0.0)}"
         print(body)
@@ -127,7 +127,7 @@ class APIClient {
             completion(false, error)
         }
     }
-    
+
     class func updateStudentLocation(information: TheStudentInformation, completion: @escaping (Bool, Error?) -> Void) {
         let body = "{\"uniqueKey\": \"\(information.uniqueKey ?? "")\", \"firstName\": \"\(information.firstName)\", \"lastName\": \"\(information.lastName)\",\"mapString\": \"\(information.mapString ?? "")\", \"mediaURL\": \"\(information.mediaURL ?? "")\",\"latitude\": \(information.latitude ?? 0.0), \"longitude\": \(information.longitude ?? 0.0)}"
         TheRequestHelpers.taskForPOSTRequest(url: APIEndpoints.updateLocation.url, apiType: "Parse", responseType: UpdateTheLocationResponse.self, body: body, httpMethod: "PUT") { (response, error) in

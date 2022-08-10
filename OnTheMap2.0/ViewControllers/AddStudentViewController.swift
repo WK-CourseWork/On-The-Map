@@ -20,7 +20,7 @@ class AddStudentViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         enterALinkToShare.delegate = self
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let studentLocation = studentInformation {
@@ -39,7 +39,7 @@ class AddStudentViewController: UIViewController, UITextFieldDelegate {
             showTheLocations(location: studentLocation)
         }
     }
-    
+
     @IBAction func submitButtonPressed(_ sender: Any) {
         studentInformation?.mediaURL = enterALinkToShare.text
         if let studentLocation = studentInformation {
@@ -58,7 +58,7 @@ class AddStudentViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
+
      func showTheLocations(location: Location) {
         addStudentMapView.removeAnnotations(addStudentMapView.annotations)
         if let coordinate = extractTheCoordinates(location: location) {
@@ -70,14 +70,14 @@ class AddStudentViewController: UIViewController, UITextFieldDelegate {
             addStudentMapView.showAnnotations(addStudentMapView.annotations, animated: true)
         }
     }
-    
+
      func extractTheCoordinates(location: Location) -> CLLocationCoordinate2D? {
         if let lat = location.latitude, let lon = location.longitude {
             return CLLocationCoordinate2DMake(lat, lon)
         }
         return nil
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         enterALinkToShare.resignFirstResponder()
         return true
