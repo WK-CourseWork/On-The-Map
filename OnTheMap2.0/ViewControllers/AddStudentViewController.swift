@@ -15,7 +15,7 @@ class AddStudentViewController: UIViewController, UITextFieldDelegate {
 
     var objectId: String?
     var studentInformation: TheStudentInformation?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         enterALinkToShare.delegate = self

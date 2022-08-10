@@ -16,7 +16,7 @@ class APIClient {
         static var lastName = ""
         static var objectId = ""
     }
-    
+
     enum APIEndpoints {
         static let base = "https://onthemap-api.udacity.com/v1"
         
@@ -48,7 +48,7 @@ class APIClient {
         }
     }
     
-    class func login(username: String, password: String, completion: @escaping (Bool, Error?) ->Void) {
+    class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         let body = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}"
         TheRequestHelpers.taskForPOSTRequest(url: APIEndpoints.login.url, apiType: "Udacity", responseType: TheLoginResponse.self, body: body, httpMethod: "POST") { (data, error) in
             if let data = data {
@@ -80,14 +80,14 @@ class APIClient {
         }
     }
     
-    class func logout(completion: @escaping () ->Void) {
+    class func logout(completion: @escaping () -> Void) {
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
         request.httpMethod = "DELETE"
         var xsrfCookie: HTTPCookie?
         let sharedCookieStorage = HTTPCookieStorage.shared
-        for cookie in sharedCookieStorage.cookies! {
-            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
-        }
+        for cookie in sharedCookieStorage.cookies!
+            where cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+
         if let xsrfCookie = xsrfCookie {
             request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
         }

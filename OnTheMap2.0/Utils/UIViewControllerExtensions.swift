@@ -15,7 +15,7 @@ extension UIViewController {
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertVC, animated: true)
     }
-    
+
     func openLink(_ url: String) {
         guard let url = URL(string: url), UIApplication.shared.canOpenURL(url) else {
             showError(message: "Cannot open link.", title: "Invalid Link")

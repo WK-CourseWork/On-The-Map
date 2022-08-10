@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
             showError(message: "Please make sure you entered your username and password", title: "Input Error")
         }
     }
-    
+
     @IBAction func signUpButtonPressed(_ sender: Any) {
         UIApplication.shared.open(APIClient.APIEndpoints.signUp.url, options: [:], completionHandler: nil)
     }

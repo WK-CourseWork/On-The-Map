@@ -25,7 +25,7 @@ class ListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath)
-        
+
         let student = students[indexPath.row]
         cell.textLabel?.text = "\(student.firstName)" + " " + "\(student.lastName)"
         cell.detailTextLabel?.text = "\(student.mediaURL ?? "")"

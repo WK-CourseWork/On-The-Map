@@ -31,7 +31,7 @@ struct TheStudentInformation: Codable {
         self.objectId = dictionary["objectId"] as? String
         self.updatedAt = dictionary["updatedAt"] as? String
     }
-    
+
     var thelabelName: String {
         var name = ""
         if !firstName.isEmpty {

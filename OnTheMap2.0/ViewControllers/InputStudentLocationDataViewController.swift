@@ -41,7 +41,7 @@ class InputStudentLocationDataViewController: UIViewController, UITextFieldDeleg
                 print("Location not found.")
             } else {
                 var location: CLLocation?
-            
+
                 if let marker = newMarker, marker.count > 0 {
                     location = marker.first?.location
                 }

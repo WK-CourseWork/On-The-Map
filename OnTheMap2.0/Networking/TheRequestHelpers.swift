@@ -17,7 +17,7 @@ class TheRequestHelpers {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             print(request.url!)
         } else {
-            
+
         }
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             if error != nil {
@@ -63,14 +63,14 @@ class TheRequestHelpers {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = body.data(using: .utf8)
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
             if error != nil {
                 completion(nil, error)
                 return
             }
             guard let data = data else {
                 DispatchQueue.main.async {
-                    completion(nil,error)
+                    completion(nil, error)
                 }
                 return
             }
