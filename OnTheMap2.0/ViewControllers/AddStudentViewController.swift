@@ -13,7 +13,7 @@ class AddStudentViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addStudentMapView: MKMapView!
     @IBOutlet weak var enterALinkToShare: UITextField!
     @IBOutlet weak var newCircle: UIActivityIndicatorView!
-    
+
     var objectId: String?
     var studentInformation: TheStudentInformation?
 
