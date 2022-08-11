@@ -12,7 +12,8 @@ import MapKit
 class AddStudentViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addStudentMapView: MKMapView!
     @IBOutlet weak var enterALinkToShare: UITextField!
-
+    @IBOutlet weak var newCircle: UIActivityIndicatorView!
+    
     var objectId: String?
     var studentInformation: TheStudentInformation?
 
@@ -36,11 +37,13 @@ class AddStudentViewController: UIViewController, UITextFieldDelegate {
                 createdAt: studentLocation.createdAt ?? "",
                 updatedAt: studentLocation.updatedAt ?? ""
             )
+            showActivityCircle(newCircle)
             showTheLocations(location: studentLocation)
         }
     }
 
     @IBAction func submitButtonPressed(_ sender: Any) {
+        showActivityCircle(newCircle)
         studentInformation?.mediaURL = enterALinkToShare.text
         if let studentLocation = studentInformation {
             if APIClient.Auth.objectId == "" {
@@ -57,6 +60,7 @@ class AddStudentViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+        hideActivityCircle(newCircle)
     }
 
      func showTheLocations(location: Location) {

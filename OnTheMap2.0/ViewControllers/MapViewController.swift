@@ -11,6 +11,7 @@ import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate {
 
+    @IBOutlet weak var circle: UIActivityIndicatorView!
     @IBOutlet weak var theMapView: MKMapView!
     @IBOutlet weak var mapViewReloadButton: UIBarButtonItem!
     @IBOutlet weak var mapViewAddButton: UIBarButtonItem!
@@ -56,9 +57,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 }
             }
         }
+        hideActivityCircle(circle)
     }
 
     @IBAction func reloadButtonPressed(_ sender: Any) {
+        showActivityCircle(circle)
         getTheStudentLocation()
     }
 

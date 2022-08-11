@@ -10,6 +10,7 @@ import UIKit
 
 class ListViewController: UITableViewController {
 
+    @IBOutlet weak var anotherCircle: UIActivityIndicatorView!
     @IBOutlet weak var studentTableView: UITableView!
 
     var students = [TheStudentInformation]()
@@ -40,6 +41,7 @@ class ListViewController: UITableViewController {
 
     @IBAction func reloadButtonPressed(_ sender: Any) {
         getTheStudentsInformation()
+        showActivityCircle(anotherCircle)
     }
 
     func getTheStudentsInformation() {
