@@ -39,11 +39,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="username"/>
+                                        <connections>
+                                            <action selector="emailReturned:" destination="FKl-Ba-yIk" eventType="primaryActionTriggered" id="x5n-me-CBW"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Fi-8W-ABr">
                                         <rect key="frame" x="0.0" y="81" width="414" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="continue" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="FKl-Ba-yIk" eventType="primaryActionTriggered" id="nFa-Bk-83w"/>
+                                        </connections>
                                     </textField>
                                     <button contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y32-Vp-Yzh">
                                         <rect key="frame" x="0.0" y="127" width="414" height="31"/>
@@ -317,28 +323,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lk-Jk-1xM">
-                                <rect key="frame" x="0.0" y="168" width="414" height="20.5"/>
+                                <rect key="frame" x="0.0" y="148" width="414" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Donde está usted hoy?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieJ-SG-9ys">
-                                <rect key="frame" x="0.0" y="206.5" width="414" height="20.5"/>
+                                <rect key="frame" x="0.0" y="186.5" width="414" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wo bist du heute?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8u-Fd-Suk">
-                                <rect key="frame" x="0.0" y="245" width="414" height="20.5"/>
+                                <rect key="frame" x="0.0" y="225" width="414" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Location Here" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qBk-S1-tVq">
-                                <rect key="frame" x="0.0" y="348" width="414" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="h6j-P7-nfH"/>
-                                </constraints>
+                                <rect key="frame" x="106.5" y="328" width="201" height="240"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" textContentType="location"/>
                             </textField>
@@ -350,7 +353,7 @@
                                     <action selector="findTheLocationWithSender:" destination="t9r-P9-g81" eventType="touchUpInside" id="nKJ-aY-JJy"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8pt-yS-8Nt">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8pt-yS-8Nt">
                                 <rect key="frame" x="197" y="731" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -359,6 +362,7 @@
                         <constraints>
                             <constraint firstItem="7lk-Jk-1xM" firstAttribute="leading" secondItem="Jz3-SN-JSM" secondAttribute="leading" id="3bM-f4-txr"/>
                             <constraint firstItem="Jz3-SN-JSM" firstAttribute="trailing" secondItem="E8u-Fd-Suk" secondAttribute="trailing" id="5Nj-7R-KU0"/>
+                            <constraint firstItem="qBk-S1-tVq" firstAttribute="top" secondItem="E8u-Fd-Suk" secondAttribute="bottom" constant="82.5" id="6tQ-pb-p5D"/>
                             <constraint firstItem="ieJ-SG-9ys" firstAttribute="top" secondItem="7lk-Jk-1xM" secondAttribute="bottom" constant="18" id="H2X-Ap-IHo"/>
                             <constraint firstItem="Jz3-SN-JSM" firstAttribute="trailing" secondItem="ieJ-SG-9ys" secondAttribute="trailing" id="IkM-Dv-RXf"/>
                             <constraint firstItem="qBk-S1-tVq" firstAttribute="centerX" secondItem="ZpX-OI-Wv8" secondAttribute="centerX" id="SQ8-Xr-YHb"/>
@@ -366,14 +370,14 @@
                             <constraint firstItem="qBk-S1-tVq" firstAttribute="centerY" secondItem="ZpX-OI-Wv8" secondAttribute="centerY" id="Zhz-oO-sg7"/>
                             <constraint firstItem="E8u-Fd-Suk" firstAttribute="top" secondItem="ieJ-SG-9ys" secondAttribute="bottom" constant="18" id="bdC-eO-j16"/>
                             <constraint firstItem="E8u-Fd-Suk" firstAttribute="leading" secondItem="Jz3-SN-JSM" secondAttribute="leading" id="d3J-C2-CL8"/>
-                            <constraint firstItem="Jz3-SN-JSM" firstAttribute="trailing" secondItem="qBk-S1-tVq" secondAttribute="trailing" id="esx-71-2MC"/>
+                            <constraint firstItem="Jz3-SN-JSM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qBk-S1-tVq" secondAttribute="trailing" id="esx-71-2MC"/>
                             <constraint firstItem="8pt-yS-8Nt" firstAttribute="centerX" secondItem="ZpX-OI-Wv8" secondAttribute="centerX" id="k1R-25-Z7p"/>
-                            <constraint firstItem="7lk-Jk-1xM" firstAttribute="top" secondItem="Jz3-SN-JSM" secondAttribute="top" constant="80" id="ngd-fa-sX6"/>
+                            <constraint firstItem="7lk-Jk-1xM" firstAttribute="top" secondItem="Jz3-SN-JSM" secondAttribute="top" constant="60" id="ngd-fa-sX6"/>
                             <constraint firstItem="K3Z-83-Cak" firstAttribute="centerX" secondItem="ZpX-OI-Wv8" secondAttribute="centerX" id="oTw-Qq-bbD"/>
                             <constraint firstItem="ieJ-SG-9ys" firstAttribute="leading" secondItem="Jz3-SN-JSM" secondAttribute="leading" id="p5a-xI-8KI"/>
                             <constraint firstItem="Jz3-SN-JSM" firstAttribute="trailing" secondItem="7lk-Jk-1xM" secondAttribute="trailing" id="s48-Kc-CzU"/>
                             <constraint firstItem="8pt-yS-8Nt" firstAttribute="top" secondItem="K3Z-83-Cak" secondAttribute="bottom" constant="18" id="tGm-sk-AdI"/>
-                            <constraint firstItem="qBk-S1-tVq" firstAttribute="leading" secondItem="Jz3-SN-JSM" secondAttribute="leading" id="zYj-7a-NFs"/>
+                            <constraint firstItem="qBk-S1-tVq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jz3-SN-JSM" secondAttribute="leading" id="zYj-7a-NFs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AiU-hU-oIc">
@@ -427,7 +431,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" textContentType="url"/>
                             </textField>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zBk-KW-2lg">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zBk-KW-2lg">
                                 <rect key="frame" x="197" y="781" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -465,7 +469,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vaK-gR-3gf"/>
+        <segue reference="hFH-jg-aZ2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>

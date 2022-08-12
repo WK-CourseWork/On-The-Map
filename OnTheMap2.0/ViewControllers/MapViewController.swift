@@ -28,7 +28,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidAppear(animated)
         getTheStudentLocation()
     }
-
+    
     func getTheStudentLocation() {
         APIClient.getStudentLocation { locations, error in
             if error == nil {
@@ -73,7 +73,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             pinView!.canShowCallout = true
             pinView!.pinTintColor = .red
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-
+            pinView!.animatesDrop = true
         } else {
             pinView!.annotation = annotation
         }

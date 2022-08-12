@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0903C33C28A6A86200062CCA /* Client+POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0903C33B28A6A86200062CCA /* Client+POST.swift */; };
 		094C59F028A16B3600ECB3E3 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094C59EF28A16B3600ECB3E3 /* LoginResponse.swift */; };
 		094C59F228A16BAF00ECB3E3 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094C59F128A16BAF00ECB3E3 /* Account.swift */; };
 		094C59F428A16BBD00ECB3E3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094C59F328A16BBD00ECB3E3 /* Session.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0903C33B28A6A86200062CCA /* Client+POST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+POST.swift"; sourceTree = "<group>"; };
 		094C59EF28A16B3600ECB3E3 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		094C59F128A16BAF00ECB3E3 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		094C59F328A16BBD00ECB3E3 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				0955F42A28999E70009B14F2 /* Client.swift */,
 				09E17546289C619100F4A14A /* TheRequestHelpers.swift */,
 				0955F43C2899A33E009B14F2 /* APIResponse.swift */,
+				0903C33B28A6A86200062CCA /* Client+POST.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -115,7 +118,6 @@
 				0955F42828999E70009B14F2 /* SceneDelegate.swift */,
 				09E1753C289C33BC00F4A14A /* Utils */,
 				0955F443289AC5B1009B14F2 /* Model */,
-				094C59FD28A170A400ECB3E3 /* Networking */,
 				0955F446289AC6CB009B14F2 /* ViewControllers */,
 				0955F445289AC5EF009B14F2 /* Assets */,
 			);
@@ -133,6 +135,7 @@
 		0955F443289AC5B1009B14F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				094C59FD28A170A400ECB3E3 /* Networking */,
 				09E17548289C656300F4A14A /* LoginRequest.swift */,
 				094C59F328A16BBD00ECB3E3 /* Session.swift */,
 				094C59F128A16BAF00ECB3E3 /* Account.swift */,
@@ -270,6 +273,7 @@
 				094C59F228A16BAF00ECB3E3 /* Account.swift in Sources */,
 				0955F43B28999EA0009B14F2 /* StudentInformation.swift in Sources */,
 				094C59F628A16E0C00ECB3E3 /* UserProfile.swift in Sources */,
+				0903C33C28A6A86200062CCA /* Client+POST.swift in Sources */,
 				094C59F028A16B3600ECB3E3 /* LoginResponse.swift in Sources */,
 				09E7A4CC289B042B00AC883B /* ListViewController.swift in Sources */,
 				094C5A0528A1883B00ECB3E3 /* Location.swift in Sources */,

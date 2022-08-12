@@ -23,6 +23,19 @@ class LoginViewController: UIViewController {
         hideActivityCircle(acitivityCircle)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        APIClient.logout {
+            DispatchQueue.main.async {
+                self.passwordTextField.text = ""
+            }
+        }
+    }
+
+    @IBAction func emailReturned(_ sender: Any) {
+        passwordTextField.becomeFirstResponder()
+    }
+
     @IBAction func loginButtonPressed(_ sender: Any) {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
